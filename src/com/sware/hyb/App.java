@@ -3,22 +3,65 @@ package com.sware.hyb;
 import org.hibernate.*;
 import org.hibernate.cfg.*;
 
-public class App {
+import com.sware.hyb.domain.Student;
+import com.sware.hyb.ui.MainPage;
 
+public class App {
+	private static Configuration configuration;
+	private static SessionFactory sessionFactory;
+	private static Session session;
+	private static Transaction transaction;
+	
+	
 	public App() {
-		// TODO Auto-generated constructor stub
+		System.out.println("App Constructor called");
+		configuration=new Configuration().configure();
+		 sessionFactory=configuration.buildSessionFactory();
+		 session=sessionFactory.openSession();
+		 //transaction=session.beginTransaction();
 	}
 	
+	
+	
+	
 	public static void main(String[] args) {
-		System.out.println("Hello");
-		Configuration conf=new Configuration().configure();
-		SessionFactory sf=conf.buildSessionFactory();
-		Session session=sf.openSession();
-		Transaction t=session.beginTransaction();
-		Lecture l=new Lecture(4,"JEE-Java",102);
-		session.save(l);
 		
-		t.commit();
+		//Lecture l=new Lecture(4,"JEE-Java",102);
+		App app=new App();
+		
+		MainPage mainPage=new MainPage();
+	}
+
+	public Configuration getConfiguration() {
+		return configuration;
+	}
+
+	public void setConfiguration(Configuration configuration) {
+		this.configuration = configuration;
+	}
+
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+
+	public  static  Session getSession() {
+		return session;
+	}
+
+	public  static void setSession(Session session) {
+		session = session;
+	}
+
+	public static Transaction getTransaction() {
+		return transaction;
+	}
+	
+	public  static void setTransaction(Transaction transaction) {
+		transaction = transaction;
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.sware.hyb;
+package com.sware.hyb.domain;
 
 public class Lecture {
 

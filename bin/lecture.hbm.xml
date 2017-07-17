@@ -5,7 +5,7 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 		
 <hibernate-mapping>
-	<class name="com.sware.hyb.Lecture" table="lecture">
+	<class name="com.sware.hyb.domain.Lecture" table="lecture">
 		<id name="lecture_id" column="lect_id"></id>
 		<property name="subject" column="subject"></property>
 		<property name="lectureTime" column="lectTime"></property>
